@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "user": "admin",
+      "password": "password",
+      "id": 1
+    }
+  ],
+  "books": [
+    {
+      "author": "Patricks Rothfuss",
+      "lenguage": "Português",
+      "name": "O Nome do Vento",
+      "pageNumber": 656,
+      "id": 1
+    }
+  ]
+}
