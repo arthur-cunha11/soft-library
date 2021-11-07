@@ -1,7 +1,7 @@
 import React from "react";
 import Login from "./components/Forms/UserForm/Login";
 import UserRegister from "./components/Forms/UserForm/Register";
-import BookList from "./components/BookList";
+import BookPage from "./components/BookPage";
 import { useSelector } from "react-redux";
 import { Container, Title, Wrapper } from "./components/index";
 
@@ -20,7 +20,7 @@ const App: React.FC = () => {
           <UserRegister />
         </Wrapper>
       )}
-      {!isBookListPage && <BookList />}
+      {!isBookListPage && <BookPage />}
     </Container>
   );
 };
