@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import BookEdit from "../BookForm/Edit";
+import BookEdit from "../Edit";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Text, Wrapper } from "../../index";
+import { Button, List, ListItem, Text } from "../../index";
 import { setEditingBook, setRefreshGet } from "../../../store/actionCreators";
 
 interface IProps {
@@ -25,10 +25,10 @@ const BookList: React.FC<IProps> = ({ bookList }) => {
   };
 
   return (
-    <Wrapper>
+    <List>
       {bookList.map((element: any) => {
         return (
-          <Wrapper key={element.id}>
+          <ListItem key={element.id}>
             <Text>Nome: {element.name}</Text>
             <Text>Autor: {element.author}</Text>
             {showDetails === element.id && (
@@ -45,10 +45,10 @@ const BookList: React.FC<IProps> = ({ bookList }) => {
               Exibir mais detalhes
             </Button>
             <Button onClick={() => deleteBook(element.id)}>Excluir</Button>
-          </Wrapper>
+          </ListItem>
         );
       })}
-    </Wrapper>
+    </List>
   );
 };
 

@@ -1,20 +1,18 @@
 import React from "react";
-import UserPage from "./components/User/UserPage";
 import BookPage from "./components/Book/BookPage";
-import { useSelector } from "react-redux";
+import UserPage from "./components/User/UserPage";
 import { Container, Title } from "./components/index";
+import { useSelector } from "react-redux";
 
 const App: React.FC = () => {
   const isLoginPage = useSelector((state: any) => state.reducer.isLoginPage);
-  const isBookListPage = useSelector(
-    (state: any) => state.reducer.isBookListPage
-  );
+  const isBookPage = useSelector((state: any) => state.reducer.isBookPage);
 
   return (
     <Container>
       <Title>Biblioteca Soft</Title>
-      {isLoginPage && <UserPage />}
-      {isBookListPage && <BookPage />}
+      {!isLoginPage && <UserPage />}
+      {!isBookPage && <BookPage />}
     </Container>
   );
 };

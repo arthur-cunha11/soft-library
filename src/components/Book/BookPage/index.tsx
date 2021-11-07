@@ -1,5 +1,5 @@
 import React from "react";
-import BookRegister from "../BookForm/Register";
+import BookRegister from "../Register";
 import BookSearch from "../BookSearch";
 import { SubTitle, Wrapper } from "../../index";
 

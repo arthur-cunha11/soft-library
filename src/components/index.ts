@@ -17,6 +17,10 @@ export const Input = styled.input`
   color: #ffff;
 `;
 
+export const List = styled.ul``;
+
+export const ListItem = styled.li``;
+
 export const SubTitle = styled.h3`
   color: #ffff;
 `;
