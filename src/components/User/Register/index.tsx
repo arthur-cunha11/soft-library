@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Wrapper, SubTitle, Input, Button, Text } from "../../../index";
+import { Wrapper, SubTitle, Input, Button, Text } from "../../index";
 
 const UserRegister: React.FC = () => {
   const [password, setPassword] = useState<string>("");

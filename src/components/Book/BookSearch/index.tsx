@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BookList from "../BookList";
 import { useSelector } from "react-redux";
-import { Button, Input, Wrapper } from "../index";
+import { Button, Input, Wrapper } from "../../index";
 
 const BookSearch: React.FC = () => {
   const refreshGet = useSelector((state: any) => state.reducer.refreshGet);

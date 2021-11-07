@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import BookEdit from "../Forms/BookForm/Edit";
+import BookEdit from "../BookForm/Edit";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Text, Wrapper } from "../index";
-import { setEditingBook, setRefreshGet } from "../../store/actionCreators";
+import { Button, Text, Wrapper } from "../../index";
+import { setEditingBook, setRefreshGet } from "../../../store/actionCreators";
 
 interface IProps {
   bookList: any;

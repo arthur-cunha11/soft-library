@@ -1,7 +1,7 @@
 import React from "react";
-import Login from "./components/Forms/UserForm/Login";
-import UserRegister from "./components/Forms/UserForm/Register";
-import BookPage from "./components/BookPage";
+import Login from "./components/User/Login";
+import UserRegister from "./components/User/Register";
+import BookPage from "./components/Book/BookPage";
 import { useSelector } from "react-redux";
 import { Container, Title, Wrapper } from "./components/index";
 
@@ -14,13 +14,13 @@ const App: React.FC = () => {
   return (
     <Container>
       <Title>Biblioteca Soft</Title>
-      {!isLoginPage && (
+      {isLoginPage && (
         <Wrapper>
           <Login />
           <UserRegister />
         </Wrapper>
       )}
-      {!isBookListPage && <BookPage />}
+      {isBookListPage && <BookPage />}
     </Container>
   );
 };

@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Button, Input, SubTitle, Wrapper } from "../../../index";
-import {
-  toggleLoginPage,
-  toggleBookPage,
-} from "../../../../store/actionCreators";
+import { Button, Input, SubTitle, Wrapper } from "../../index";
+import { toggleLoginPage, toggleBookPage } from "../../../store/actionCreators";
 
 const Login: React.FC = () => {
   const dispatch = useDispatch();

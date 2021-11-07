@@ -1,7 +1,7 @@
 import React from "react";
-import BookRegister from "../Forms/BookForm/Register";
+import BookRegister from "../BookForm/Register";
 import BookSearch from "../BookSearch";
-import { SubTitle, Wrapper } from "../index";
+import { SubTitle, Wrapper } from "../../index";
 
 const BookPage: React.FC = () => {
   return (
