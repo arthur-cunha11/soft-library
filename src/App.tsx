@@ -6,8 +6,8 @@ import { connect } from "react-redux";
 import { Container, Title, Wrapper } from "./components/index";
 
 interface IProps {
-  isLoginPage: boolean;
-  isBookListPage: boolean;
+  isLoginPage?: boolean;
+  isBookListPage?: boolean;
 }
 
 const App: React.FC<IProps> = ({ isLoginPage, isBookListPage }) => {

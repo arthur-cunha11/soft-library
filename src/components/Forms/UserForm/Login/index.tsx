@@ -5,8 +5,8 @@ import { Button, Input, SubTitle, Wrapper } from "../../../index";
 import * as actionCreator from "../../../../store/actionCreators";
 
 interface IProps {
-  toggleBookPage: any;
-  toggleLoginPage: any;
+  toggleBookPage?: any;
+  toggleLoginPage?: any;
 }
 
 const Login: React.FC<IProps> = ({ toggleBookPage, toggleLoginPage }) => {

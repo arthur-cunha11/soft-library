@@ -3,8 +3,8 @@ import { Button, Input, SubTitle, Wrapper } from "../../index";
 
 interface IProps {
   id: string;
-  refreshGet: any;
-  isRefreshGet: boolean;
+  refreshGet?: any;
+  isRefreshGet?: boolean;
 }
 
 const BookEdit: React.FC<IProps> = ({ id, refreshGet, isRefreshGet }) => {

@@ -5,8 +5,8 @@ import { Button, Input, SubTitle, Wrapper } from "../../index";
 import * as actionCreator from "../../../store/actionCreators";
 
 interface IProps {
-  refreshGet: any;
-  isRefreshGet: boolean;
+  refreshGet?: any;
+  isRefreshGet?: boolean;
 }
 
 const BookRegister: React.FC<IProps> = ({ refreshGet, isRefreshGet }) => {

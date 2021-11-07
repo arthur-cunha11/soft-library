@@ -5,8 +5,8 @@ import BookRegister from "../Forms/BookForm/Register";
 import BookEdit from "../Forms/BookForm/Edit";
 
 interface IProps {
-  refreshGet: any;
-  isRefreshGet: boolean;
+  refreshGet?: any;
+  isRefreshGet?: boolean;
 }
 
 const BookList: React.FC<IProps> = ({ refreshGet, isRefreshGet }) => {
