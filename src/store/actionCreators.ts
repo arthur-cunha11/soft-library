@@ -14,9 +14,16 @@ export const toggleBookPage = (value: boolean) => {
   };
 };
 
-export const refreshGet = (value: boolean) => {
+export const setRefreshGet = (value: boolean) => {
   return {
     type: actionTypes.UPDATE_GETBOOKS,
+    value,
+  };
+};
+
+export const setEditingBook = (value: number) => {
+  return {
+    type: actionTypes.UPDATE_EDITBOOK,
     value,
   };
 };

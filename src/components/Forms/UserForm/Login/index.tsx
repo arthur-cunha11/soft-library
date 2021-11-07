@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { AnyAction, bindActionCreators, Dispatch } from "redux";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Button, Input, SubTitle, Wrapper } from "../../../index";
-import * as actionCreator from "../../../../store/actionCreators";
+import {
+  toggleLoginPage,
+  toggleBookPage,
+} from "../../../../store/actionCreators";
 
-interface IProps {
-  toggleBookPage?: any;
-  toggleLoginPage?: any;
-}
-
-const Login: React.FC<IProps> = ({ toggleBookPage, toggleLoginPage }) => {
+const Login: React.FC = () => {
+  const dispatch = useDispatch();
   const [password, setPassword] = useState<string>("");
   const [user, setUser] = useState<string>("");
 
@@ -22,8 +20,8 @@ const Login: React.FC<IProps> = ({ toggleBookPage, toggleLoginPage }) => {
     });
 
     if (verifiedLogin) {
-      await toggleLoginPage(false);
-      await toggleBookPage(true);
+      dispatch(toggleLoginPage(false));
+      dispatch(toggleBookPage(true));
     } else {
       alert("Há algum campo incorreto!");
     }
@@ -55,7 +53,4 @@ const Login: React.FC<IProps> = ({ toggleBookPage, toggleLoginPage }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
-  bindActionCreators(actionCreator, dispatch);
-
-export default connect(null, mapDispatchToProps)(Login);
+export default Login;

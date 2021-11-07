@@ -2,19 +2,19 @@ import React from "react";
 import Login from "./components/Forms/UserForm/Login";
 import UserRegister from "./components/Forms/UserForm/Register";
 import BookList from "./components/BookList";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { Container, Title, Wrapper } from "./components/index";
 
-interface IProps {
-  isLoginPage?: boolean;
-  isBookListPage?: boolean;
-}
+const App: React.FC = () => {
+  const isLoginPage = useSelector((state: any) => state.reducer.isLoginPage);
+  const isBookListPage = useSelector(
+    (state: any) => state.reducer.isBookListPage
+  );
 
-const App: React.FC<IProps> = ({ isLoginPage, isBookListPage }) => {
   return (
     <Container>
       <Title>Biblioteca Soft</Title>
-      {isLoginPage && (
+      {!isLoginPage && (
         <Wrapper>
           <Login />
           <UserRegister />
@@ -25,9 +25,4 @@ const App: React.FC<IProps> = ({ isLoginPage, isBookListPage }) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
-  isLoginPage: state.reducer.isLoginPage,
-  isBookListPage: state.reducer.isBookListPage,
-});
-
-export default connect(mapStateToProps)(App);
+export default App;

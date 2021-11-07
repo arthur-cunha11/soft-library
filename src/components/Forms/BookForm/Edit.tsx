@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Button, Input, SubTitle, Wrapper } from "../../index";
+import { setEditingBook, setRefreshGet } from "../../../store/actionCreators";
 
 interface IProps {
   id: string;
-  refreshGet?: any;
-  isRefreshGet?: boolean;
 }
 
-const BookEdit: React.FC<IProps> = ({ id, refreshGet, isRefreshGet }) => {
+const BookEdit: React.FC<IProps> = ({ id }) => {
+  const dispatch = useDispatch();
+  const refreshGet = useSelector((state: any) => state.reducer.refreshGet);
   const [author, setAuthor] = useState<string>("");
   const [language, setLanguage] = useState<string>("");
   const [name, setName] = useState<string>("");
@@ -28,12 +30,13 @@ const BookEdit: React.FC<IProps> = ({ id, refreshGet, isRefreshGet }) => {
           pageNumber,
         }),
       });
-      refreshGet(!isRefreshGet);
+      dispatch(setRefreshGet(!refreshGet));
       alert("Livro editado com sucesso!");
       setAuthor("");
       setLanguage("");
       setName("");
       setPageNumber("");
+      dispatch(setEditingBook(0));
     } else {
       alert("Preencha todos os campos de edição!");
     }

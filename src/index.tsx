@@ -10,9 +10,11 @@ import { reducer } from "./store/reducer";
 const store = createStore(combineReducers({ reducer }));
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
   document.getElementById("root")
 );
 

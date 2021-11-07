@@ -1,15 +1,11 @@
 import React, { useState } from "react";
-import { AnyAction, bindActionCreators, Dispatch } from "redux";
-import { connect } from "react-redux";
 import { Button, Input, SubTitle, Wrapper } from "../../index";
-import * as actionCreator from "../../../store/actionCreators";
+import { setRefreshGet } from "../../../store/actionCreators";
+import { useDispatch, useSelector } from "react-redux";
 
-interface IProps {
-  refreshGet?: any;
-  isRefreshGet?: boolean;
-}
-
-const BookRegister: React.FC<IProps> = ({ refreshGet, isRefreshGet }) => {
+const BookRegister: React.FC = () => {
+  const dispatch = useDispatch();
+  const refreshGet = useSelector((state: any) => state.reducer.refreshGet);
   const [author, setAuthor] = useState<string>("");
   const [language, setLanguage] = useState<string>("");
   const [name, setName] = useState<string>("");
@@ -30,7 +26,7 @@ const BookRegister: React.FC<IProps> = ({ refreshGet, isRefreshGet }) => {
           pageNumber,
         }),
       });
-      refreshGet(!isRefreshGet);
+      dispatch(setRefreshGet(!refreshGet));
       alert("Livro cadastrado com sucesso!");
       setAuthor("");
       setLanguage("");
@@ -75,7 +71,4 @@ const BookRegister: React.FC<IProps> = ({ refreshGet, isRefreshGet }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
-  bindActionCreators(actionCreator, dispatch);
-
-export default connect(null, mapDispatchToProps)(BookRegister);
+export default BookRegister;

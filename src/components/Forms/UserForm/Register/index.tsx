@@ -4,9 +4,8 @@ import { Wrapper, SubTitle, Input, Button, Text } from "../../../index";
 const UserRegister: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [user, setUser] = useState<string>("");
-  const [signUp, setSignUp] = useState<boolean>(false);
 
-  const handleClick = async (type: string) => {
+  const handleClick = async () => {
     if (user !== "" && password !== "") {
       const verifiedSignUp = await fetch("http://localhost:3000/users", {
         method: "POST",
@@ -21,7 +20,6 @@ const UserRegister: React.FC = () => {
         alert("Cadastro realizado com sucesso!");
         setPassword("");
         setUser("");
-        setSignUp(true);
       }
     } else {
       alert("Por favor preencha os dois campos de cadastro.");
@@ -50,8 +48,7 @@ const UserRegister: React.FC = () => {
           }
         />
       </Wrapper>
-      <Button onClick={() => handleClick("signUp")}>Cadastrar</Button>
-      {signUp && <Text>Cadastro realizado com sucesso!</Text>}
+      <Button onClick={handleClick}>Cadastrar</Button>
     </Wrapper>
   );
 };

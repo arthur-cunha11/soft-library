@@ -1,28 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { Button, SubTitle, Text, Wrapper } from "../index";
 import BookRegister from "../Forms/BookForm/Register";
 import BookEdit from "../Forms/BookForm/Edit";
+import { useDispatch, useSelector } from "react-redux";
+import { Button, SubTitle, Text, Wrapper } from "../index";
+import { setEditingBook, setRefreshGet } from "../../store/actionCreators";
 
-interface IProps {
-  refreshGet?: any;
-  isRefreshGet?: boolean;
-}
-
-const BookList: React.FC<IProps> = ({ refreshGet, isRefreshGet }) => {
+const BookList: React.FC = () => {
+  const dispatch = useDispatch();
+  const refreshGet = useSelector((state: any) => state.reducer.refreshGet);
+  const isEditingBook = useSelector(
+    (state: any) => state.reducer.isEditingBook
+  );
   const [bookList, setBookList] = useState([]);
-  const [isEditing, setIsEditing] = useState<string>("");
   const [showDetails, setShowDetails] = useState<string>("");
-
-  const editBook = async (id: string) => {
-    setIsEditing(id);
-  };
 
   const deleteBook = async (id: string) => {
     await fetch("http://localhost:3000/books/" + id, {
       method: "DELETE",
     });
-    refreshGet(!isRefreshGet);
+    dispatch(setRefreshGet(!refreshGet));
     alert("Livro excluído com sucesso!");
   };
 
@@ -30,7 +26,7 @@ const BookList: React.FC<IProps> = ({ refreshGet, isRefreshGet }) => {
     fetch("http://localhost:3000/books").then((response) =>
       response.json().then((data) => setBookList(data))
     );
-  }, [isRefreshGet]);
+  }, [refreshGet]);
 
   return (
     <Wrapper>
@@ -47,8 +43,10 @@ const BookList: React.FC<IProps> = ({ refreshGet, isRefreshGet }) => {
                 <Text>Número de páginas: {element.pageNumber}</Text>
               </>
             )}
-            {isEditing === element.id && <BookEdit id={element.id} />}
-            <Button onClick={() => editBook(element.id)}>Editar</Button>
+            {isEditingBook === element.id && <BookEdit id={element.id} />}
+            <Button onClick={() => dispatch(setEditingBook(element.id))}>
+              Editar
+            </Button>
             <Button onClick={() => setShowDetails(element.id)}>
               Exibir mais detalhes
             </Button>
@@ -60,8 +58,4 @@ const BookList: React.FC<IProps> = ({ refreshGet, isRefreshGet }) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
-  refreshGet: state.reducer.refreshGet,
-});
-
-export default connect(mapStateToProps)(BookList);
+export default BookList;
