@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Button, Input, SubTitle, Wrapper } from "../../index";
 import { toggleLoginPage, toggleBookPage } from "../../../store/actionCreators";
 
-const Login: React.FC = () => {
+const UserLogin: React.FC = () => {
   const dispatch = useDispatch();
   const [password, setPassword] = useState<string>("");
   const [user, setUser] = useState<string>("");
@@ -50,4 +50,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default UserLogin;

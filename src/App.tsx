@@ -1,9 +1,8 @@
 import React from "react";
-import Login from "./components/User/Login";
-import UserRegister from "./components/User/Register";
+import UserPage from "./components/User/UserPage";
 import BookPage from "./components/Book/BookPage";
 import { useSelector } from "react-redux";
-import { Container, Title, Wrapper } from "./components/index";
+import { Container, Title } from "./components/index";
 
 const App: React.FC = () => {
   const isLoginPage = useSelector((state: any) => state.reducer.isLoginPage);
@@ -14,12 +13,7 @@ const App: React.FC = () => {
   return (
     <Container>
       <Title>Biblioteca Soft</Title>
-      {isLoginPage && (
-        <Wrapper>
-          <Login />
-          <UserRegister />
-        </Wrapper>
-      )}
+      {isLoginPage && <UserPage />}
       {isBookListPage && <BookPage />}
     </Container>
   );
