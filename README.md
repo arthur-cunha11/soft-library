@@ -6,13 +6,14 @@
 - [Sobre o Projeto](#sobre-o-projeto)
 - [Feito com](#feito-com)
 - [Estrutura de Arquivos](#estrutura-de-arquivos) 
+- [Dados mockados](#dados-mockados)
 - [Instalação](#instalação)
 - [Execução](#execução)
 - [Desenvolvido por](#desenvolvido-por)
 
 ## Sobre o projeto
 
-Este projeto foi criado com [Create React App](https://github.com/facebook/create-react-app)
+Este projeto foi criado com [Create React App](https://github.com/facebook/create-react-app).
 
 Sistema de biblioteca simples para demonstração de funções:
 - Login
@@ -74,6 +75,12 @@ soft-design-test
 
 ```
 
+## Dados mockados
+
+A aplicação começa com um usuário e alguns livros já cadastrados:
+
+![image](https://user-images.githubusercontent.com/53005772/140814897-de70f025-1bab-4bcb-a7ea-84ae13bf874a.png)
+
 ## Instalação
 
 Para instalar todas as dependências necessárias para o funcionamento do projeto, execute o comando:
@@ -94,7 +101,9 @@ yarn start
 ```
 ![image](https://user-images.githubusercontent.com/53005772/140792638-cb1dc009-4984-4c05-8582-ab5a3b9a17af.png)
 
-Acesse [http://localhost:3001](http://localhost:3001) para usar a aplicação!
+Pronto! A aplicação está pronta para uso.
+
+Acesse [http://localhost:3001](http://localhost:3001).
 
 ## Desenvolvido por
 
