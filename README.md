@@ -82,17 +82,19 @@ yarn install
 ```
 ## Execução
 
-Primeiro execute a aplicação em modo de desenvolvimento, utilizando o comando:
-```bash 
-yarn start
-```
-
-Depois inicie o servidor JSON, utilizando o comando:
+Primeiro inicie o servidor JSON, utilizando o comando:
 ```bash 
 json-server --watch src/db.json
 ```
+![image](https://user-images.githubusercontent.com/53005772/140791892-5eefff85-4980-409f-b5b7-3da5935e000f.png)
 
-Acesse [http://localhost:3000](http://localhost:3000) para usar a aplicação!
+Depois execute a aplicação em modo de desenvolvimento em outra porta, utilizando o comando:
+```bash 
+yarn start
+```
+![image](https://user-images.githubusercontent.com/53005772/140792638-cb1dc009-4984-4c05-8582-ab5a3b9a17af.png)
+
+Acesse [http://localhost:3001](http://localhost:3001) para usar a aplicação!
 
 ## Desenvolvido por
 
