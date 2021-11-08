@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { Button, Input, UserLoginWrapper } from "../../index";
+import { toggleBookPage, toggleLoginPage } from "../../../store/actionCreators";
 import { useDispatch } from "react-redux";
-import { Button, Input, SubTitle, Wrapper } from "../../index";
-import { toggleLoginPage, toggleBookPage } from "../../../store/actionCreators";
 
 const UserLogin: React.FC = () => {
   const dispatch = useDispatch();
@@ -25,17 +25,17 @@ const UserLogin: React.FC = () => {
   };
 
   return (
-    <Wrapper>
-      <SubTitle>Já possuo cadastro</SubTitle>
-      <Wrapper>
+    <UserLoginWrapper>
+      <h3>Login</h3>
+      <div>
         <Input
           placeholder="Usuário"
           type="text"
           value={user}
           onChange={(event) => setUser(event.target.value.replace(/\s/g, ""))}
         />
-      </Wrapper>
-      <Wrapper>
+      </div>
+      <div>
         <Input
           placeholder="Senha"
           type="text"
@@ -44,9 +44,9 @@ const UserLogin: React.FC = () => {
             setPassword(event.target.value.replace(/\s/g, ""))
           }
         />
-      </Wrapper>
+      </div>
       <Button onClick={handleClick}>Entrar</Button>
-    </Wrapper>
+    </UserLoginWrapper>
   );
 };
 

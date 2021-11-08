@@ -1,15 +1,15 @@
 import React from "react";
 import BookRegister from "../Register";
 import BookSearch from "../BookSearch";
-import { SubTitle, Wrapper } from "../../index";
+import { BookPageWrapper } from "../../index";
 
 const BookPage: React.FC = () => {
   return (
-    <Wrapper>
+    <BookPageWrapper>
       <BookRegister />
-      <SubTitle>Lista de livros cadastrados</SubTitle>
+      <h3>Lista de livros cadastrados</h3>
       <BookSearch />
-    </Wrapper>
+    </BookPageWrapper>
   );
 };
 

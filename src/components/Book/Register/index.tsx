@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Input, SubTitle, Wrapper } from "../../index";
+import { BookRegisterWrapper, Button, Input } from "../../index";
 import { setRefreshGet } from "../../../store/actionCreators";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -38,9 +38,9 @@ const BookRegister: React.FC = () => {
   };
 
   return (
-    <Wrapper>
-      <SubTitle>Cadastro de livros</SubTitle>
-      <Wrapper>
+    <BookRegisterWrapper>
+      <h3>Cadastro de livros</h3>
+      <div>
         <Input
           placeholder="Nome"
           type="text"
@@ -66,8 +66,8 @@ const BookRegister: React.FC = () => {
           onChange={(event) => setPageNumber(event.target.value)}
         />
         <Button onClick={registerBook}>Cadastrar livro</Button>
-      </Wrapper>
-    </Wrapper>
+      </div>
+    </BookRegisterWrapper>
   );
 };
 

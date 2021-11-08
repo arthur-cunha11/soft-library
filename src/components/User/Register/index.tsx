@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Wrapper, SubTitle, Input, Button, Text } from "../../index";
+import { Button, Input, UserRegisterWrapper } from "../../index";
 
 const UserRegister: React.FC = () => {
   const [password, setPassword] = useState<string>("");
@@ -27,18 +27,17 @@ const UserRegister: React.FC = () => {
   };
 
   return (
-    <Wrapper>
-      <SubTitle>Cadastrar</SubTitle>
-      <Text>Os campos usuário e senha não devem conter espaços.</Text>
-      <Wrapper>
+    <UserRegisterWrapper>
+      <h3>Cadastrar</h3>
+      <div>
         <Input
           placeholder="Usuário"
           type="text"
           value={user}
           onChange={(event) => setUser(event.target.value.replace(/\s/g, ""))}
         />
-      </Wrapper>
-      <Wrapper>
+      </div>
+      <div>
         <Input
           placeholder="Senha"
           type="text"
@@ -47,9 +46,9 @@ const UserRegister: React.FC = () => {
             setPassword(event.target.value.replace(/\s/g, ""))
           }
         />
-      </Wrapper>
+      </div>
       <Button onClick={handleClick}>Cadastrar</Button>
-    </Wrapper>
+    </UserRegisterWrapper>
   );
 };
 

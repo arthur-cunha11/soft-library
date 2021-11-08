@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BookList from "../BookList";
+import { BookSearchWrapper, Button, Input } from "../../index";
 import { useSelector } from "react-redux";
-import { Button, Input, Wrapper } from "../../index";
 
 const BookSearch: React.FC = () => {
   const refreshGet = useSelector((state: any) => state.reducer.refreshGet);
@@ -29,7 +29,7 @@ const BookSearch: React.FC = () => {
   }, [refreshGet]);
 
   return (
-    <Wrapper>
+    <BookSearchWrapper>
       <Input
         placeholder="Pesquisar por nome ou autor"
         type="text"
@@ -38,7 +38,7 @@ const BookSearch: React.FC = () => {
       />
       <Button onClick={searchBooks}>Pesquisar</Button>
       <BookList bookList={bookList} />
-    </Wrapper>
+    </BookSearchWrapper>
   );
 };
 

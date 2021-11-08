@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import BookEdit from "../Edit";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, List, ListItem, Text } from "../../index";
+import {
+  Button,
+  List,
+  ListItem,
+  ListItemButtons,
+  ListItemTexts,
+  Warning,
+} from "../../index";
 import { setEditingBook, setRefreshGet } from "../../../store/actionCreators";
 
 interface IProps {
@@ -51,28 +58,54 @@ const BookList: React.FC<IProps> = ({ bookList }) => {
       {bookList.map((element: any) => {
         return (
           <ListItem key={element.id}>
-            {verifyRentedBooks(element.id) && (
-              <Text>Este livro está alugado!</Text>
-            )}
-            <Text>Nome: {element.name}</Text>
-            <Text>Autor: {element.author}</Text>
-            {verifyShowDetails(element.id) && (
-              <>
-                <Text>Idioma: {element.language}</Text>
-                <Text>Número de páginas: {element.pageNumber}</Text>
-              </>
-            )}
-            {isEditingBook === element.id && <BookEdit id={element.id} />}
-            <Button
-              onClick={() => setShowDetails([...showDetails, element.id])}
-            >
-              Exibir mais detalhes
-            </Button>
-            <Button onClick={() => rentBook(element.id)}>Alugar</Button>
-            <Button onClick={() => dispatch(setEditingBook(element.id))}>
-              Editar
-            </Button>
-            <Button onClick={() => deleteBook(element.id)}>Excluir</Button>
+            <ListItemTexts>
+              <div>
+                {verifyRentedBooks(element.id) && (
+                  <Warning>Livro alugado!</Warning>
+                )}
+                <p>
+                  <strong>Nome: </strong>
+                  {element.name}
+                </p>
+                <p>
+                  <strong>Autor: </strong>
+                  {element.author}
+                </p>
+                {verifyShowDetails(element.id) && (
+                  <>
+                    <p>
+                      <strong>Idioma: </strong>
+                      {element.language}
+                    </p>
+                    <p>
+                      <strong>Número de páginas: </strong>
+                      {element.pageNumber}
+                    </p>
+                  </>
+                )}
+              </div>
+              {isEditingBook === element.id && <BookEdit id={element.id} />}
+            </ListItemTexts>
+            <ListItemButtons>
+              <Button
+                color="#5f9ea0"
+                onClick={() => setShowDetails([...showDetails, element.id])}
+              >
+                Exibir mais detalhes
+              </Button>
+              <Button color="#006400" onClick={() => rentBook(element.id)}>
+                Alugar
+              </Button>
+              <Button
+                color="#daa520"
+                onClick={() => dispatch(setEditingBook(element.id))}
+              >
+                Editar
+              </Button>
+              <Button color="#8b0000" onClick={() => deleteBook(element.id)}>
+                Excluir
+              </Button>
+            </ListItemButtons>
           </ListItem>
         );
       })}

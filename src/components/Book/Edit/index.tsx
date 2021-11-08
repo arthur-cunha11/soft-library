@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Button, Input, SubTitle, Wrapper } from "../../index";
+import { BookEditWrapper, Button, Input } from "../../index";
 import { setEditingBook, setRefreshGet } from "../../../store/actionCreators";
+import { useDispatch, useSelector } from "react-redux";
 
 interface IProps {
   id: string;
@@ -31,7 +31,6 @@ const BookEdit: React.FC<IProps> = ({ id }) => {
         }),
       });
       dispatch(setRefreshGet(!refreshGet));
-      alert("Livro editado com sucesso!");
       setAuthor("");
       setLanguage("");
       setName("");
@@ -43,8 +42,8 @@ const BookEdit: React.FC<IProps> = ({ id }) => {
   };
 
   return (
-    <Wrapper>
-      <SubTitle>Editar dados:</SubTitle>
+    <BookEditWrapper>
+      <h3>Editar dados:</h3>
       <Input
         placeholder="Nome"
         type="text"
@@ -70,7 +69,7 @@ const BookEdit: React.FC<IProps> = ({ id }) => {
         onChange={(event) => setPageNumber(event.target.value)}
       />
       <Button onClick={() => editBook(id)}>Confirmar</Button>
-    </Wrapper>
+    </BookEditWrapper>
   );
 };
 
