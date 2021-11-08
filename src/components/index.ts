@@ -157,7 +157,3 @@ export const Title = styled.h1`
   color: #ff9000;
   margin: 30px 0;
 `;
-
-export const Warning = styled.p`
-  color: #7fff00;
-`;

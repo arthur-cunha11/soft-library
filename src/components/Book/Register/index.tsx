@@ -24,6 +24,7 @@ const BookRegister: React.FC = () => {
           language,
           name,
           pageNumber,
+          status: "Disponível",
         }),
       });
       dispatch(setRefreshGet(!refreshGet));

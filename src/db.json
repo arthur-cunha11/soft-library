@@ -8,6 +8,7 @@
   ],
   "books": [
     {
+      "status": "Disponível",
       "author": "Patrick Rothfuss",
       "language": "Português",
       "name": "O Nome do Vento",
@@ -15,11 +16,36 @@
       "id": 1
     },
     {
+      "status": "Alugado",
       "author": "Patrick Rothfuss",
       "language": "Português",
       "name": "O Temor do Sábio",
       "pageNumber": "960",
       "id": 2
+    },
+    {
+      "status": "Disponível",
+      "author": "Chugong",
+      "language": "Português",
+      "name": "Solo Leveling - Volume 01",
+      "pageNumber": "320",
+      "id": 3
+    },
+    {
+      "status": "Disponível",
+      "author": "Chugong",
+      "language": "Português",
+      "name": "Solo Leveling - Volume 02",
+      "pageNumber": "300",
+      "id": 4
+    },
+    {
+      "status": "Disponível",
+      "author": "Chugong",
+      "language": "Português",
+      "name": "Solo Leveling - Volume 03",
+      "pageNumber": "300",
+      "id": 5
     }
   ]
 }

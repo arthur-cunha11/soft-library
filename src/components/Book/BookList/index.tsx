@@ -7,7 +7,6 @@ import {
   ListItem,
   ListItemButtons,
   ListItemTexts,
-  Warning,
 } from "../../index";
 import { setEditingBook, setRefreshGet } from "../../../store/actionCreators";
 
@@ -22,14 +21,27 @@ const BookList: React.FC<IProps> = ({ bookList }) => {
     (state: any) => state.reducer.isEditingBook
   );
   const [showDetails, setShowDetails] = useState<Array<string>>([]);
-  const [rentedBooks, setRentedBooks] = useState<Array<string>>([]);
 
-  const rentBook = (id: string) => {
-    if (verifyRentedBooks(id)) {
-      alert("Este livro já está alugado!");
-    } else {
-      setRentedBooks([...rentedBooks, id]);
+  const rentBook = async (element: any) => {
+    if (element.status === "Disponível") {
+      await fetch("http://localhost:3000/books/" + element.id, {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        method: "PUT",
+        body: JSON.stringify({
+          status: "Alugado",
+          author: element.author,
+          language: element.language,
+          name: element.name,
+          pageNumber: element.pageNumber,
+        }),
+      });
+      dispatch(setRefreshGet(!refreshGet));
       alert("Livro alugado com sucesso!");
+    } else {
+      alert("Este livro já está alugado!");
     }
   };
 
@@ -39,12 +51,6 @@ const BookList: React.FC<IProps> = ({ bookList }) => {
     });
     dispatch(setRefreshGet(!refreshGet));
     alert("Livro excluído com sucesso!");
-  };
-
-  const verifyRentedBooks = (id: string) => {
-    return rentedBooks.some((element: any) => {
-      return element === id;
-    });
   };
 
   const verifyShowDetails = (id: string) => {
@@ -60,9 +66,10 @@ const BookList: React.FC<IProps> = ({ bookList }) => {
           <ListItem key={element.id}>
             <ListItemTexts>
               <div>
-                {verifyRentedBooks(element.id) && (
-                  <Warning>Livro alugado!</Warning>
-                )}
+                <p>
+                  <strong>Status: </strong>
+                  {element.status}
+                </p>
                 <p>
                   <strong>Nome: </strong>
                   {element.name}
@@ -93,7 +100,7 @@ const BookList: React.FC<IProps> = ({ bookList }) => {
               >
                 Exibir mais detalhes
               </Button>
-              <Button color="#006400" onClick={() => rentBook(element.id)}>
+              <Button color="#006400" onClick={() => rentBook(element)}>
                 Alugar
               </Button>
               <Button

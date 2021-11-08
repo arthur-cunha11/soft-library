@@ -11,8 +11,8 @@ const App: React.FC = () => {
   return (
     <Container>
       <Title>Biblioteca Soft</Title>
-      {isLoginPage && <UserPage />}
-      {isBookPage && <BookPage />}
+      {!isLoginPage && <UserPage />}
+      {!isBookPage && <BookPage />}
     </Container>
   );
 };
