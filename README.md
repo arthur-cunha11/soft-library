@@ -1,46 +1,99 @@
-# Getting Started with Create React App
+# Biblioteca Soft
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tabela de Conteúdo
 
-## Available Scripts
+- [Tabela de Conteúdo](#tabela-de-conteúdo)
+- [Sobre o Projeto](#sobre-o-projeto)
+- [Feito com](#feito-com)
+- [Estrutura de Arquivos](#estrutura-de-arquivos) 
+- [Instalação](#instalação)
+- [Execução](#execução)
+- [Desenvolvido por](#desenvolvido-por)
 
-In the project directory, you can run:
+## Sobre o projeto
 
-### `yarn start`
+Este projeto foi criado com [Create React App](https://github.com/facebook/create-react-app)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Sistema de biblioteca simples para demonstração de funções:
+- Login
+- Lista de livros
+- CRUD de livros
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Feito com
 
-### `yarn test`
+* [React](https://pt-br.reactjs.org/) - Biblioteca JavaScript de código aberto com foco em criar interfaces de usuário em páginas web
+* [Redux](https://react-redux.js.org/) - Biblioteca JavaScript de código aberto para gerenciar o estado do aplicativo.
+* [JSON server](https://www.npmjs.com/package/json-server) - Servidor JSON para obter uma API REST sem código.
+* [Styled Components](https://styled-components.com/) - Componentes estilizados que permitem que seja descrito CSS real no JavaScript.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Estrutura de Arquivos
 
-### `yarn build`
+```bash
+soft-design-test
+├── public/
+│   ├── favicon.ico
+│   ├── index.html
+├── src/
+│   ├── components/
+│   │   ├── Book/
+│   │   │   ├── BookList/
+│   │   │   │   └── index.tsx
+│   │   │   ├── BookPage/
+│   │   │   │   └── index.tsx
+│   │   │   ├── BookSearch/
+│   │   │   │   └── index.tsx
+│   │   │   ├── Edit/
+│   │   │   │   └── index.tsx
+│   │   │   └── Register/
+│   │   │   │   └── index.tsx
+│   │   ├── User/
+│   │   │   ├── Login/
+│   │   │   │   └── index.tsx
+│   │   │   ├── Register/
+│   │   │   │   └── index.tsx
+│   │   │   └── UserPage/
+│   │   │   │   └── index.tsx
+│   │   └── index.ts
+│   ├── store/
+│   │   ├── actionCreators.ts
+│   │   ├── actionTypes.ts
+│   │   └── reducer.ts
+│   ├── App.test.tsx
+│   ├── App.tsx
+│   ├── db.json
+│   ├── index.tsx
+│   ├── react-app-env.d.ts
+│   ├── reportWebVitals.ts
+│   └── setupTests.ts
+├── .gitignore
+├── package-lock.json
+├── package.json
+├── README.md
+├── tsconfig.json
+└── yarn.lock
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Instalação
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Para instalar todas as dependências necessárias para o funcionamento do projeto, execute o comando:
+```bash 
+yarn install
+```
+## Execução
 
-### `yarn eject`
+Primeiro execute a aplicação em modo de desenvolvimento, utilizando o comando:
+```bash 
+yarn start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Depois inicie o servidor JSON, utilizando o comando:
+```bash 
+json-server --watch src/db.json
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Acesse [http://localhost:3000](http://localhost:3000) para usar a aplicação!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Desenvolvido por
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* **Desenvolvedor Front-End**  - [Arthur Cunha](https://github.com/arthur-cunha11)
