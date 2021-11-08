@@ -5,14 +5,17 @@ interface IProps {
 }
 
 export const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+  }
+
   body {
     background-color: #15202b;
     color: #ffff;
     font-family: Arial, Helvetica, sans-serif;
-  }
-
-  h3, p {
-    margin: 0;
   }
 `;
 
@@ -91,8 +94,13 @@ export const Input = styled.input`
 export const List = styled.ul`
   height: 500px;
   list-style: none;
+  margin-top: 20px;
   overflow: auto;
   padding: 0;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export const ListItem = styled.li`
@@ -127,18 +135,27 @@ export const UserLoginWrapper = styled.div`
   }
 `;
 
-export const UserRegisterWrapper = styled(UserLoginWrapper)``;
+export const UserRegisterWrapper = styled(UserLoginWrapper)`
+  @media (max-width: 600px) {
+    margin-top: 30px;
+  }
+`;
 
 export const UserPageWrapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-top: 50px;
+  margin-top: 20px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 export const Title = styled.h1`
   color: #ff9000;
+  margin: 30px 0;
 `;
 
 export const Warning = styled.p`
